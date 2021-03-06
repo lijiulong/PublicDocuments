@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <key name="Software">
 	<key name="ConEmu">
-		<key name=".Vanilla" modified="2019-11-12 16:45:22" build="191012">
+		<key name=".Vanilla" modified="2021-03-06 18:54:43" build="210206">
 			<value name="Language" type="string" data="en"/>
 			<value name="StartType" type="hex" data="02"/>
 			<value name="CmdLine" type="string" data=""/>
@@ -82,8 +82,11 @@
 			<value name="JumpListAutoUpdate" type="hex" data="00"/>
 			<value name="SaveCmdHistory" type="hex" data="01"/>
 			<value name="CmdLineHistory" type="multi">
-				<line data="{Shells::cmd (Admin)}"/>
 				<line data="{Shells::cmd-frank}"/>
+				<line data="{Shells::cmd (Admin)}"/>
+				<line data="{Shells::PowerShell-frank}"/>
+				<line data="{Shells::cmd}"/>
+				<line data="{Shells::PowerShell}"/>
 				<line data="{Shells::cmd-32}"/>
 			</value>
 			<value name="SingleInstance" type="hex" data="00"/>
@@ -111,7 +114,7 @@
 			<value name="FontName" type="string" data="DejaVu Sans Mono"/>
 			<value name="FontName2" type="string" data="Consolas"/>
 			<value name="FontAutoSize" type="hex" data="00"/>
-			<value name="FontSize" type="ulong" data="13"/>
+			<value name="FontSize" type="ulong" data="12"/>
 			<value name="FontSizeX" type="ulong" data="0"/>
 			<value name="FontUseDpi" type="hex" data="01"/>
 			<value name="FontUseUnits" type="hex" data="01"/>
@@ -135,14 +138,14 @@
 			<value name="UserScreenTransparent" type="hex" data="00"/>
 			<value name="ColorKeyTransparent" type="hex" data="00"/>
 			<value name="ColorKeyValue" type="dword" data="00010101"/>
-			<value name="UseCurrentSizePos" type="hex" data="01"/>
-			<value name="AutoSaveSizePos" type="hex" data="01"/>
+			<value name="UseCurrentSizePos" type="hex" data="00"/>
+			<value name="AutoSaveSizePos" type="hex" data="00"/>
 			<value name="Cascaded" type="hex" data="01"/>
 			<value name="IntegralSize" type="hex" data="00"/>
 			<value name="WindowMode" type="dword" data="0000051f"/>
-			<value name="ConWnd X" type="long" data="195"/>
-			<value name="ConWnd Y" type="long" data="108"/>
-			<value name="LastMonitor" type="string" data="0,0,1366,738"/>
+			<value name="ConWnd X" type="long" data="473"/>
+			<value name="ConWnd Y" type="long" data="300"/>
+			<value name="LastMonitor" type="string" data="0,0,3840,2114"/>
 			<value name="ConWnd Width" type="dword" data="00000064"/>
 			<value name="ConWnd Height" type="dword" data="0000001e"/>
 			<value name="16bit Height" type="ulong" data="0"/>
@@ -174,13 +177,30 @@
 			<value name="ComSpec.UncPaths" type="hex" data="00"/>
 			<value name="ComSpec.Path" type="string" data=""/>
 			<value name="EnvironmentSet" type="multi">
+				<line data="set HOME=D:\home"/>
+				<line data="set ROOT=%HOME%/.root-emu"/>
+				<line data="set OPT=%ROOT%/opt"/>
+				<line data="set ANDROID_SDK=%ProgramFiles(x86)%/Android/android-sdk"/>
 				<line data="set PATH=%ConEmuBaseDir%\Scripts;%PATH%"/>
-				<line data="set HOME=C:\home\"/>
+				<line data="set PATH=%ROOT%/bin;%PATH%"/>
+				<line data="set PATH=%OPT%/shadowsocks;%PATH%"/>
+				<line data="set PATH=%OPT%/v2rayn;%PATH%"/>
+				<line data="set PATH=%OPT%/Regester;%PATH%"/>
+				<line data="set PATH=%OPT%/xlink-device-simulator;%PATH%"/>
+				<line data="set PATH=%OPT%/i4airplayer;%PATH%"/>
+				<line data="set PATH=%ProgramFiles%/MongoDB/Server/4.2/bin;%PATH%"/>
+				<line data="set PATH=%ChocolateyToolsLocation%;%PATH%"/>
+				<line data="set PATH=%ChocolateyToolsLocation%/mysql/current/bin;%PATH%"/>
+				<line data="set PATH=%ProgramFiles%/IIS Express;%PATH%"/>
+				<line data="set PATH=%SystemRoot%/system32/inetsrv;%PATH%"/>
+				<line data="set PATH=%ANDROID_SDK%/platform-tools;%PATH%"/>
 				<line data="set LC_ALL=en_US.UTF-8"/>
 				<line data="set LANG=en_US.UTF-8"/>
 				<line data="set LANGUAGE=en_US.UTF-8"/>
 				<line data='alias cd~=cd /d "%HOME%"'/>
 				<line data="alias ls=dir /d"/>
+				<line data="alias ll=dir /q/a"/>
+				<line data="alias open=explorer ."/>
 				<line data=" "/>
 				<line data="# set ConEmuPromptNames=NO"/>
 				<line data="# set ConEmuPromptNL=NO"/>
@@ -411,7 +431,7 @@
 			<value name="Update.DownloadPath" type="string" data="%TEMP%\ConEmu"/>
 			<value name="Update.LeavePackages" type="hex" data="00"/>
 			<value name="Update.PostUpdateCmd" type="string" data="echo Last successful update&gt;ConEmuUpdate.info &amp;&amp; date /t&gt;&gt;ConEmuUpdate.info &amp;&amp; time /t&gt;&gt;ConEmuUpdate.info"/>
-			<key name="HotKeys" modified="2019-02-02 00:18:45" build="190108">
+			<key name="HotKeys" modified="2020-12-05 14:14:35" build="201124">
 				<value name="KeyMacroVersion" type="hex" data="02"/>
 				<value name="Multi.Modifier" type="dword" data="000000a2"/>
 				<value name="Multi.ArrowsModifier" type="dword" data="0000005b"/>
@@ -606,9 +626,11 @@
 				<value name="DndLKey" type="hex" data="00"/>
 				<value name="DndRKey" type="hex" data="A2"/>
 				<value name="WndDragKey" type="dword" data="00121101"/>
+				<value name="Key.EditMenu" type="dword" data="00000000"/>
+				<value name="Key.EditMenu2" type="dword" data="00000000"/>
 			</key>
-			<key name="Tasks" modified="2019-02-02 00:18:45" build="190108">
-				<value name="Count" type="long" data="15"/>
+			<key name="Tasks" modified="2020-09-22 10:20:24" build="200615">
+				<value name="Count" type="long" data="16"/>
 				<key name="Task1" modified="2019-02-02 00:18:45" build="190108">
 					<value name="Name" type="string" data="{Shells::cmd-frank}"/>
 					<value name="Flags" type="dword" data="00000003"/>
@@ -616,9 +638,18 @@
 					<value name="GuiArgs" type="string" data=""/>
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
-					<value name="Cmd1" type="string" data='cmd.exe /k "%ConEmuBaseDir%\CmdInit.cmd" -cur_console:r -cur_console:d:C:\home -cur_console:t:cmd-frank'/>
+					<value name="Cmd1" type="string" data='cmd.exe /k "%ConEmuBaseDir%\CmdInit.cmd" -cur_console:r -cur_console:d:D:\home -cur_console:t:cmd-frank'/>
 				</key>
-				<key name="Task2" modified="2019-02-02 00:18:45" build="190108">
+				<key name="Task2" modified="2020-09-22 13:44:39" build="200713">
+					<value name="Name" type="string" data="{Shells::PowerShell-frank}"/>
+					<value name="Flags" type="dword" data="00000000"/>
+					<value name="Hotkey" type="dword" data="00000000"/>
+					<value name="GuiArgs" type="string" data=""/>
+					<value name="Active" type="long" data="0"/>
+					<value name="Count" type="long" data="1"/>
+					<value name="Cmd1" type="string" data="powershell.exe -cur_console:r -cur_console:d:D:\home"/>
+				</key>
+				<key name="Task3" modified="2020-09-22 10:20:24" build="200615">
 					<value name="Name" type="string" data="{Shells::cmd}"/>
 					<value name="Flags" type="dword" data="00000000"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -627,16 +658,16 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data='cmd.exe /k "%ConEmuBaseDir%\CmdInit.cmd"'/>
 				</key>
-				<key name="Task3" modified="2019-08-14 15:05:45" build="190714">
+				<key name="Task4" modified="2020-09-22 10:20:24" build="200615">
 					<value name="Name" type="string" data="{Shells::cmd (Admin)}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
 					<value name="GuiArgs" type="string" data=""/>
 					<value name="Active" type="long" data="0"/>
 					<value name="Count" type="long" data="1"/>
-					<value name="Cmd1" type="string" data='cmd.exe /k "%ConEmuBaseDir%\CmdInit.cmd" -new_console:a -cur_console:d:C:\home'/>
+					<value name="Cmd1" type="string" data='cmd.exe /k "%ConEmuBaseDir%\CmdInit.cmd" -new_console:a -cur_console:d:D:\home'/>
 				</key>
-				<key name="Task4" modified="2019-02-02 00:18:45" build="190108">
+				<key name="Task5" modified="2020-09-22 10:20:24" build="200615">
 					<value name="Name" type="string" data="{Shells::cmd-32}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -645,7 +676,7 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data='"%windir%\syswow64\cmd.exe" /k "%ConEmuBaseDir%\CmdInit.cmd"'/>
 				</key>
-				<key name="Task5" modified="2019-02-02 00:18:45" build="190108">
+				<key name="Task6" modified="2020-09-22 10:20:24" build="200615">
 					<value name="Name" type="string" data="{Shells::cmd 64/32}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -655,7 +686,7 @@
 					<value name="Cmd1" type="string" data='&gt; "%windir%\system32\cmd.exe" /k ""%ConEmuBaseDir%\CmdInit.cmd" &amp; echo This is Native cmd.exe"'/>
 					<value name="Cmd2" type="string" data='"%windir%\syswow64\cmd.exe" /k ""%ConEmuBaseDir%\CmdInit.cmd" &amp; echo This is 32 bit cmd.exe -new_console:s50V"'/>
 				</key>
-				<key name="Task6" modified="2019-02-02 00:18:45" build="190108">
+				<key name="Task7" modified="2020-09-22 10:20:24" build="200615">
 					<value name="Name" type="string" data="{Shells::PowerShell}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -664,7 +695,7 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data="powershell.exe"/>
 				</key>
-				<key name="Task7" modified="2019-02-02 00:18:45" build="190108">
+				<key name="Task8" modified="2020-09-22 10:20:24" build="200615">
 					<value name="Name" type="string" data="{Shells::PowerShell (Admin)}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -673,7 +704,7 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data="powershell.exe -new_console:a"/>
 				</key>
-				<key name="Task8" modified="2019-02-02 00:18:45" build="190108">
+				<key name="Task9" modified="2020-09-22 10:20:24" build="200615">
 					<value name="Name" type="string" data="{Bash::Git bash}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -682,7 +713,7 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data='set "PATH=%ConEmuDir%\..\Git\usr\bin;%PATH%" &amp; "%ConEmuDir%\..\Git\git-cmd.exe" --no-cd --command=%ConEmuBaseDirShort%\conemu-msys2-64.exe /usr/bin/bash.exe -l -i -new_console:p'/>
 				</key>
-				<key name="Task9" modified="2019-02-02 00:18:45" build="190108">
+				<key name="Task10" modified="2020-09-22 10:20:24" build="200615">
 					<value name="Name" type="string" data="{Putty}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -691,7 +722,7 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data="Putty.exe"/>
 				</key>
-				<key name="Task10" modified="2019-02-02 00:18:45" build="190108">
+				<key name="Task11" modified="2020-09-22 10:20:24" build="200615">
 					<value name="Name" type="string" data="{Helper::Show ANSI colors}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -700,7 +731,7 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data='cmd.exe /k type "%ConEmuBaseDir%\Addons\AnsiColors16t.ans" -cur_console:n'/>
 				</key>
-				<key name="Task11" modified="2019-02-02 00:18:45" build="190108">
+				<key name="Task12" modified="2020-09-22 10:20:24" build="200615">
 					<value name="Name" type="string" data="{SDK::VS 14.0 x86 tools prompt}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -709,7 +740,7 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data='cmd /k ""%ConEmuDrive%\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat"" x86 -new_console:t:"VS 14.0" -new_console:C:"%CommonProgramFiles(x86)%\microsoft shared\MSEnv\VSFileHandler.dll,33"'/>
 				</key>
-				<key name="Task12" modified="2019-02-02 00:18:45" build="190108">
+				<key name="Task13" modified="2020-09-22 10:20:24" build="200615">
 					<value name="Name" type="string" data="{SDK::VS 15.0 x86 tools prompt}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -718,7 +749,7 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data='cmd /k ""%ConEmuDrive%\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat"" x86 -new_console:t:"VS 15.0" -new_console:C:"%CommonProgramFiles(x86)%\microsoft shared\MSEnv\VSFileHandler.dll,38"'/>
 				</key>
-				<key name="Task13" modified="2019-02-02 00:18:45" build="190108">
+				<key name="Task14" modified="2020-09-22 10:20:24" build="200615">
 					<value name="Name" type="string" data="{SDK::VS 14.0 x64 tools prompt}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -727,7 +758,7 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data='cmd /k ""%ConEmuDrive%\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat"" x64 -new_console:t:"VS 14.0" -new_console:C:"%CommonProgramFiles(x86)%\microsoft shared\MSEnv\VSFileHandler.dll,33"'/>
 				</key>
-				<key name="Task14" modified="2019-02-02 00:18:45" build="190108">
+				<key name="Task15" modified="2020-09-22 10:20:24" build="200615">
 					<value name="Name" type="string" data="{SDK::VS 15.0 x64 tools prompt}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -736,7 +767,7 @@
 					<value name="Count" type="long" data="1"/>
 					<value name="Cmd1" type="string" data='cmd /k ""%ConEmuDrive%\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvarsall.bat"" x64 -new_console:t:"VS 15.0" -new_console:C:"%CommonProgramFiles(x86)%\microsoft shared\MSEnv\VSFileHandler.dll,38"'/>
 				</key>
-				<key name="Task15" modified="2019-02-02 00:18:45" build="190108">
+				<key name="Task16" modified="2020-09-22 10:20:24" build="200615">
 					<value name="Name" type="string" data="{Tools::Chocolatey (Admin)}"/>
 					<value name="Flags" type="dword" data="00000004"/>
 					<value name="Hotkey" type="dword" data="00000000"/>
@@ -755,6 +786,7 @@
 			<value name="AnsiLogCodes" type="hex" data="00"/>
 			<value name="AutoReloadEnvironment" type="hex" data="01"/>
 			<value name="StatusBar.Hide.InputGrouping" type="hex" data="00"/>
+			<value name="ResetTerminalConfirm" type="hex" data="01"/>
 		</key>
 	</key>
 </key>
